@@ -13,8 +13,10 @@ choice = input('Enter iface choice: ')
 
 is_in = [True for iface in ifaces if iface == choice ] # [True] or []
 
-
-    
+if is_in:  #NOTE non vide
+    os.system(f'sudo ifconfig {choice} down')
+    os.system(f'sudo ifconfig {choice} hw ether ')
+    os.system(f'sudo ifconfig {choice} up')
     
 
 # if os.name != 'posix': #NOTE Linux
