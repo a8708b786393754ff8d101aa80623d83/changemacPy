@@ -9,6 +9,10 @@ for iface in sci.get_if_list():
     print(iface + ': '+get_if_hwaddr(iface))
 
     
+choice = input('Enter iface choice: ')
+
+is_in = [True for iface in ifaces if iface == choice ] # [True] or []
+
 
     
     
