@@ -8,11 +8,11 @@ from scapy.arch import get_if_hwaddr
 
 
 if os.name != 'posix':  # NOTE Linux
-    print('Your OS is not linux')
+    raise NotImplementedError
     exit(0)
 #
 if os.getuid() != 0:
-    print('sudo permitted! ')
+    print('Do you have superuser rights?')
     exit(0)
 
 def get_random_mac_address():
@@ -33,9 +33,8 @@ def get_random_mac_address():
 
 
 ifaces = get_if_list()
-print(ifaces)
 for iface in ifaces:
-    print(iface + ': '+get_if_hwaddr(iface))
+    print(iface + ': ' + get_if_hwaddr(iface))
 
 
 choice = input('Enter iface choice: ')
